@@ -118,6 +118,13 @@
 
 &mdss_mdp {
 	qcom,mdss-pref-prim-intf = "dsi";
+
+	mdss_fb0: qcom,mdss_fb_primary {
+		/* Ketut P. Kumajaya: For old bootloader, old splash image */
+		/* Both recovery and bootanimation framebuffer need this */
+		qcom,memblock-reserve = <0x83200000 0xfa0000>;
+		qcom,mdss-fb-splash-logo-enabled;
+	};
 };
 
 &pmx_mdss {
@@ -162,7 +169,6 @@
 };
 
 &mdss_dsi_r61308_720p_video {
-	qcom,esd-check-enabled;
 	qcom,cont-splash-enabled;
 };
 
@@ -171,7 +177,6 @@
 };
 
 &mdss_dsi_r61308_s88047a1_720p_video {
-	qcom,esd-check-enabled;
 	qcom,cont-splash-enabled;
 };
 
